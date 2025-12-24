@@ -1,6 +1,7 @@
 import AddItemComponent from "../components/AddItemComponent";
 import DisplayBudgentStatusComponent from "../components/DisplayBudgentStatusComponent";
 import SetBudgetComponent from "../components/SetBudgetComponent";
+import ShoppingItems from "../components/ShoppingItems";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,8 @@ export default function HomePage() {
       <DisplayBudgentStatusComponent />
       <hr />
       <AddItemComponent />
+      <hr />
+      <ShoppingItems />
       <hr />
     </div>
   );
