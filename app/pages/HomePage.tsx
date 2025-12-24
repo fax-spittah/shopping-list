@@ -1,4 +1,5 @@
 import AddItemComponent from "../components/AddItemComponent";
+import BottomSectionComponent from "../components/BottomSectionComponent";
 import DisplayBudgentStatusComponent from "../components/DisplayBudgentStatusComponent";
 import SetBudgetComponent from "../components/SetBudgetComponent";
 import ShoppingItems from "../components/ShoppingItems";
@@ -15,6 +16,8 @@ export default function HomePage() {
       <AddItemComponent />
       <hr />
       <ShoppingItems />
+      <hr />
+      <BottomSectionComponent />
       <hr />
     </div>
   );
