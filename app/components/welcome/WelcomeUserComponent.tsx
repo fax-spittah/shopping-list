@@ -1,4 +1,4 @@
-export default function WelcomeUser() {
+export default function WelcomeUserComponent() {
   return (
     <>
       <div>
