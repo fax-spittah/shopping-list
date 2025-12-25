@@ -4,10 +4,10 @@ import WelcomeUserComponent from "@/app/components/welcome/WelcomeUserComponent"
 
 export default function WelcomePage() {
   return (
-    <>
+    <div className="flex flex-col justify-between min-h-screen p-4">
       <WelcomeUserComponent />
       <CreateNewListComponent />
       <AppQualitiesComponent />
-    </>
+    </div>
   );
 }

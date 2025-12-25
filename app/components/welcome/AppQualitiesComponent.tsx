@@ -1,4 +1,5 @@
-import { Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Check, MoveUpRight } from "lucide-react";
 
 export default function AppQualitiesComponent() {
   return (
@@ -15,7 +16,9 @@ export default function AppQualitiesComponent() {
         <span>Set and manage your budget effectively</span>
         <br />
       </div>
-      <button>Learn More</button>
+      <Button variant="outline">
+        Learn More <MoveUpRight />
+      </Button>
     </>
   );
 }

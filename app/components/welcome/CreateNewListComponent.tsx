@@ -1,18 +1,23 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
 export default function CreateNewListComponent() {
   return (
     <>
       <div>
         <h2>Start a New Shopping List</h2>
-        <label for-id="listName">List Name (optional):</label>
-        <input type="text" id="listName" placeholder="List Name" />
+        <Label htmlFor="listName">List Name (optional):</Label>
+        <Input type="text" id="listName" />
         <br />
-        <label for-id="initialBudget">Initial Budget (optional):</label>
-        <input
+        <Label htmlFor="initialBudget">Budget (required):</Label>
+        <Input
           type="number"
           id="initialBudget"
           placeholder="Initial Budget (optional)"
         />
-        <button>Start budgeting</button>
+        <br />
+        <Button variant="outline">Start budgeting</Button>
       </div>
       <hr />
     </>
