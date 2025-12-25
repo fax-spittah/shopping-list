@@ -3,22 +3,25 @@ import { Check, MoveUpRight } from "lucide-react";
 
 export default function AppQualitiesComponent() {
   return (
-    <>
-      <div>
-        <h2>Why BudgetBuddy?</h2>
-        <Check color="green" style={{ display: "inline" }} />
-        <span>Track your expenses effortlessly</span>
-        <br />
-        <Check color="green" style={{ display: "inline" }} />{" "}
-        <span>Get warned before you overspend</span>
-        <br />
-        <Check color="green" style={{ display: "inline" }} />
-        <span>Set and manage your budget effectively</span>
-        <br />
-      </div>
-      <Button variant="outline">
-        Learn More <MoveUpRight />
+    <div className="bg-green-50 rounded-xl p-6 mt-6 shadow-md">
+      <h2 className="text-2xl font-bold mb-4">Why BudgetBuddy?</h2>
+      <ul className="space-y-2">
+        <li className="flex items-center">
+          <Check color="green" className="mr-2" />
+          <span>Track your expenses effortlessly</span>
+        </li>
+        <li className="flex items-center">
+          <Check color="green" className="mr-2" />
+          <span>Get warned before you overspend</span>
+        </li>
+        <li className="flex items-center">
+          <Check color="green" className="mr-2" />
+          <span>Set and manage your budget effectively</span>
+        </li>
+      </ul>
+      <Button variant="outline" className="mt-4 flex items-center gap-2">
+        Learn More <MoveUpRight size={16} />
       </Button>
-    </>
+    </div>
   );
 }
