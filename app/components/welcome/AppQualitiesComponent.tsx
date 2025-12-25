@@ -1,18 +1,19 @@
-import CheckIcon from "@mui/icons-material/Check";
+import { Check } from "lucide-react";
 
 export default function AppQualitiesComponent() {
   return (
     <>
       <div>
         <h2>Why BudgetBuddy?</h2>
-        <CheckIcon color="success" />
+        <Check color="green" style={{ display: "inline" }} />
         <span>Track your expenses effortlessly</span>
         <br />
-        <CheckIcon color="success" />{" "}
+        <Check color="green" style={{ display: "inline" }} />{" "}
         <span>Get warned before you overspend</span>
         <br />
-        <CheckIcon color="success" />
+        <Check color="green" style={{ display: "inline" }} />
         <span>Set and manage your budget effectively</span>
+        <br />
       </div>
       <button>Learn More</button>
     </>
