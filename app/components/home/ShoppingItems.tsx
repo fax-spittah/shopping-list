@@ -9,17 +9,16 @@ const ShoppingList: ShoppingItemProps[] = [
 
 export default function ShoppingItems() {
   return (
-    <div>
-      <h2>Shopping Items</h2>
-      <ul>
+    <div className="bg-white rounded-xl shadow-md p-6 mt-6 max-w-md w-full mx-auto">
+      <h2 className="text-2xl font-bold mb-4 text-blue-600">Shopping Items</h2>
+      <ul className="space-y-3">
         {ShoppingList.map((item, index) => (
-          <li key={index}>
-            <ShoppingItem
-              name={item.name}
-              price={item.price}
-              quantity={item.quantity}
-            />
-          </li>
+          <ShoppingItem
+            key={index}
+            name={item.name}
+            price={item.price}
+            quantity={item.quantity}
+          />
         ))}
       </ul>
     </div>
