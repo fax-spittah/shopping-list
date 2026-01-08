@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0](https://github.com/fax-spittah/shopping-list/compare/v1.1.0...v1.2.0) (2026-01-08)
+
+
+### Features
+
+* cadding path leading to the about page from the welcome page ([3370f22](https://github.com/fax-spittah/shopping-list/commit/3370f22c9e3cfd7ac38d288b813cb8093bb76bf4))
+* creating about page ([4053b6d](https://github.com/fax-spittah/shopping-list/commit/4053b6dd1175886d82e02db205c48cdd99aa9e57))
+* creating about page and adding dummy data ([2481551](https://github.com/fax-spittah/shopping-list/commit/2481551b49256b50acc35f729d35882768959d6c))
+
 ## [1.1.0](https://github.com/fax-spittah/shopping-list/compare/v1.0.0...v1.1.0) (2025-12-25)
 
 
