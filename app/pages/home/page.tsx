@@ -6,19 +6,13 @@ import ShoppingItems from "../../components/home/ShoppingItems";
 
 export default function HomePage() {
   return (
-    <div>
-      <h1>Shopping List</h1>
-      <hr />
+    <div className="flex flex-col justify-between gap-6">
+      <h1 className="text-2xl text-center font-bold">Shopping List</h1>
       <SetBudgetComponent />
-      <hr />
       <DisplayBudgentStatusComponent />
-      <hr />
       <AddItemComponent />
-      <hr />
       <ShoppingItems />
-      <hr />
       <BottomSectionComponent />
-      <hr />
     </div>
   );
 }
