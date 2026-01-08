@@ -22,12 +22,14 @@ export default function CreateNewListComponent() {
             className="mt-1 w-full"
           />
         </div>
-        <Button
-          variant="outline"
-          className="mt-2 w-full border-blue-600 text-blue-600 hover:bg-blue-100"
-        >
-          Start budgeting
-        </Button>
+        <a href="/pages/home">
+          <Button
+            variant="outline"
+            className="mt-2 w-full border-blue-600 text-blue-600 hover:bg-blue-100"
+          >
+            Start budgeting
+          </Button>
+        </a>
       </div>
     </div>
   );
