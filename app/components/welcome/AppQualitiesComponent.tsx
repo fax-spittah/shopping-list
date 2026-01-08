@@ -25,12 +25,14 @@ export default function AppQualitiesComponent() {
           </span>
         </li>
       </ul>
-      <Button
-        variant="outline"
-        className="mt-4 flex items-center gap-2 border-blue-600 text-blue-600 hover:bg-blue-100"
-      >
-        Learn More <MoveUpRight size={16} />
-      </Button>
+      <a href="/pages/about">
+        <Button
+          variant="outline"
+          className="mt-4 flex items-center gap-2 border-blue-600 text-blue-600 hover:bg-blue-100"
+        >
+          Learn More <MoveUpRight size={16} />
+        </Button>
+      </a>
     </div>
   );
 }
