@@ -100,9 +100,7 @@ export default function AddItemComponent() {
           <Input
             id="itemQuantity"
             value={form.quantity}
-            onChange={(e) =>
-              setForm({ ...form, quantity: parseInt(e.target.value) })
-            }
+            onChange={(e) => setForm({ ...form, quantity: e.target.value })}
             type="number"
             placeholder="Quantity"
             className="flex-2"
