@@ -9,25 +9,35 @@ export default function AddItemComponent() {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
   const [toggleAddItemForm, setToggleAddItemForm] = useState<boolean>(false);
+  const [form, setForm] = useState({
+    name: "",
+    price: "",
+    quantity: "",
+  });
 
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
-    const formData = new FormData(event.currentTarget);
-    checkFormFields(formData);
     event.preventDefault();
+    checkFormFields();
   }
 
-  function checkFormFields(formData: FormData) {
-    const itemName = formData.get("itemName");
-    const itemPrice = formData.get("itemPrice");
-    const itemQuantity = formData.get("itemQuantity");
-
-    if (!itemName || !itemPrice || !itemQuantity) {
+  function checkFormFields() {
+    if (!form.name || !form.price || !form.quantity) {
       setErrorMessage("Please fill in all fields");
       setShowErrorMessage(true);
     } else {
       setErrorMessage("");
       setShowErrorMessage(false);
     }
+  }
+
+  function clearForm() {
+    setForm({
+      name: "",
+      price: "",
+      quantity: "",
+    });
+    setErrorMessage("");
+    setShowErrorMessage(false);
   }
 
   function toggleForm() {
@@ -63,7 +73,8 @@ export default function AddItemComponent() {
           </Label>
           <Input
             id="itemName"
-            name="itemName"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
             type="text"
             placeholder="Item name"
             className="flex-2"
@@ -75,7 +86,8 @@ export default function AddItemComponent() {
           </Label>
           <Input
             id="itemPrice"
-            name="itemPrice"
+            value={form.price}
+            onChange={(e) => setForm({ ...form, price: e.target.value })}
             type="number"
             placeholder="Price"
             className="flex-2"
@@ -87,7 +99,10 @@ export default function AddItemComponent() {
           </Label>
           <Input
             id="itemQuantity"
-            name="itemQuantity"
+            value={form.quantity}
+            onChange={(e) =>
+              setForm({ ...form, quantity: parseInt(e.target.value) })
+            }
             type="number"
             placeholder="Quantity"
             className="flex-2"
@@ -107,7 +122,11 @@ export default function AddItemComponent() {
             Add Item
           </Button>
 
-          <Button className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 w-[40%]">
+          <Button
+            type="button"
+            onClick={clearForm}
+            className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 w-[40%]"
+          >
             Clear
           </Button>
         </div>
