@@ -1,10 +1,14 @@
 "use client";
-import { Minimize2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { Minimize2 } from "lucide-react";
 
 export default function AddItemComponent() {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
+  const [toggleAddItemForm, setToggleAddItemForm] = useState<boolean>(false);
 
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     const formData = new FormData(event.currentTarget);
@@ -26,66 +30,88 @@ export default function AddItemComponent() {
     }
   }
 
+  function toggleForm() {
+    setToggleAddItemForm(!toggleAddItemForm);
+  }
+
   return (
-    <form
-      className="bg-white border-rounded w-[95%] mx-auto p-4 flex flex-col gap-3 shadow-md"
-      onSubmit={onSubmit}
-      action={checkFormFields}
-    >
-      <div className="flex justify-between items-center mb-2">
-        <div className="flex-1 text-center">
-          <h2 className="font-bold text-lg">Add New Item</h2>
-        </div>
-        <Minimize2 size={20} className="text-gray-500" />
-      </div>
-      <div className="flex flex-row justify-between">
-        <label htmlFor="itemName" className="font-medium flex-1">
-          Item Name:
-        </label>
-        <input
-          id="itemName"
-          name="itemName"
-          type="text"
-          placeholder="Item name"
-          className="flex-2"
-        />
-      </div>
-      <div className="flex flex-row justify-between">
-        <label htmlFor="itemPrice" className="font-medium flex-1">
-          Price:
-        </label>
-        <input
-          id="itemPrice"
-          name="itemPrice"
-          type="number"
-          placeholder="Price"
-          className="flex-2"
-        />
-      </div>
-      <div className="flex flex-row justify-between">
-        <label htmlFor="itemQuantity" className="font-medium flex-1">
-          Quantity:
-        </label>
-        <input
-          id="itemQuantity"
-          name="itemQuantity"
-          type="number"
-          placeholder="Quantity"
-          className="flex-2"
-        />
-      </div>
-      <p
-        className={`${showErrorMessage ? "text-red-500" : "hidden"}`}
-        id="errorMessage"
-      >
-        {errorMessage}
-      </p>
-      <button
-        type="submit"
-        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+    <>
+      <Button
+        variant="outline"
+        onClick={toggleForm}
+        className={"w-[25%] ml-2 " + (toggleAddItemForm ? "hidden" : "block")}
       >
         Add Item
-      </button>
-    </form>
+      </Button>
+
+      <form
+        className={
+          "bg-white border-rounded w-[95%] mx-auto p-4 flex flex-col gap-3 shadow-md " +
+          (toggleAddItemForm ? "block" : "hidden")
+        }
+        onSubmit={onSubmit}
+      >
+        <div className="flex justify-between items-center mb-2">
+          <div className="flex-1 text-center">
+            <h2 className="font-bold text-lg">Add New Item</h2>
+          </div>
+          <Minimize2 size={20} className="text-gray-500" onClick={toggleForm} />
+        </div>
+        <div className="flex flex-row justify-between items-center gap-2">
+          <Label htmlFor="itemName" className="font-medium flex-1">
+            Item Name:
+          </Label>
+          <Input
+            id="itemName"
+            name="itemName"
+            type="text"
+            placeholder="Item name"
+            className="flex-2"
+          />
+        </div>
+        <div className="flex flex-row justify-between items-center gap-2">
+          <Label htmlFor="itemPrice" className="font-medium flex-1">
+            Price:
+          </Label>
+          <Input
+            id="itemPrice"
+            name="itemPrice"
+            type="number"
+            placeholder="Price"
+            className="flex-2"
+          />
+        </div>
+        <div className="flex flex-row justify-between items-center gap-2">
+          <Label htmlFor="itemQuantity" className="font-medium flex-1">
+            Quantity:
+          </Label>
+          <Input
+            id="itemQuantity"
+            name="itemQuantity"
+            type="number"
+            placeholder="Quantity"
+            className="flex-2"
+          />
+        </div>
+        <p
+          className={`${showErrorMessage ? "text-red-500" : "hidden"}`}
+          id="errorMessage"
+        >
+          {errorMessage}
+        </p>
+        <div className="flex flex-row justify-around">
+          <Button
+            type="submit"
+            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-[40%]"
+          >
+            Add Item
+          </Button>
+
+          <Button className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 w-[40%]">
+            Clear
+          </Button>
+        </div>
+      </form>
+    </>
   );
 }
