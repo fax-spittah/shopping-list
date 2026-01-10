@@ -1,6 +1,6 @@
 import { ShoppingListProps } from "../types/shopping";
 
-function createList(initialBudget: number, listName?: string) {
+export default function createList(initialBudget: number, listName?: string) {
   const newList: ShoppingListProps = {
     id: generateUniqueId(),
     listName: listName ? listName : "My Shopping List",

@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import createList from "@/app/utils/storageUtils";
 
 export default function CreateNewListComponent() {
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -26,6 +27,7 @@ export default function CreateNewListComponent() {
     } else {
       setErrorMessage("");
       setShowErrorMessage(false);
+      createList(Number(form.initialBudget), form.listName);
       router.push("/pages/home");
     }
   }
