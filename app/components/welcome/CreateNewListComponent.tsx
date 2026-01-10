@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function CreateNewListComponent() {
@@ -11,6 +12,7 @@ export default function CreateNewListComponent() {
     listName: "",
     initialBudget: "",
   });
+  const router = useRouter();
 
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     checkFormFields();
@@ -24,6 +26,7 @@ export default function CreateNewListComponent() {
     } else {
       setErrorMessage("");
       setShowErrorMessage(false);
+      router.push("/pages/home");
     }
   }
 
@@ -38,6 +41,7 @@ export default function CreateNewListComponent() {
           <Input
             type="text"
             id="listName"
+            placeholder="Shopping List Name"
             className="mt-1 w-full"
             value={form.listName}
             onChange={(e) => setForm({ ...form, listName: e.target.value })}
@@ -59,15 +63,13 @@ export default function CreateNewListComponent() {
         {showErrorMessage && (
           <p className="text-red-500 text-sm">{errorMessage}</p>
         )}
-        <a href="/pages/home">
-          <Button
-            variant="outline"
-            className="mt-2 w-full border-blue-600 text-blue-600 hover:bg-blue-100"
-            type="submit"
-          >
-            Start budgeting
-          </Button>
-        </a>
+        <Button
+          variant="outline"
+          className="mt-2 w-full border-blue-600 text-blue-600 hover:bg-blue-100"
+          type="submit"
+        >
+          Start budgeting
+        </Button>
       </form>
     </div>
   );
