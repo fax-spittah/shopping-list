@@ -106,12 +106,9 @@ export default function AddItemComponent() {
             className="flex-2"
           />
         </div>
-        <p
-          className={`${showErrorMessage ? "text-red-500" : "hidden"}`}
-          id="errorMessage"
-        >
-          {errorMessage}
-        </p>
+        {showErrorMessage && (
+          <p className="text-red-500 text-sm">{errorMessage}</p>
+        )}
         <div className="flex flex-row justify-around">
           <Button
             type="submit"
