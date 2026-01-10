@@ -1,16 +1,30 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 
 export default function CreateNewListComponent() {
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
   const [form, setForm] = useState({
     listName: "",
     initialBudget: "",
   });
 
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    checkFormFields();
     event.preventDefault();
+  }
+
+  function checkFormFields() {
+    if (!form.initialBudget) {
+      setErrorMessage("Please enter an initial budget");
+      setShowErrorMessage(true);
+    } else {
+      setErrorMessage("");
+      setShowErrorMessage(false);
+    }
   }
 
   return (
@@ -42,6 +56,9 @@ export default function CreateNewListComponent() {
             className="mt-1 w-full"
           />
         </div>
+        {showErrorMessage && (
+          <p className="text-red-500 text-sm">{errorMessage}</p>
+        )}
         <a href="/pages/home">
           <Button
             variant="outline"
