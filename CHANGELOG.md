@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.3.0](https://github.com/fax-spittah/shopping-list/compare/v1.2.0...v1.3.0) (2026-01-10)
+
+
+### Features
+
+* add item component ([f403ee0](https://github.com/fax-spittah/shopping-list/commit/f403ee08e95e3fd1938974ba13012a43a7e7d103))
+* adding condition based navigation to the welcome page form ([a07112e](https://github.com/fax-spittah/shopping-list/commit/a07112e33486d260550befab2a86dbc59fdf219a))
+* adding form data validation logic to the form ([d068cf1](https://github.com/fax-spittah/shopping-list/commit/d068cf18f2a810100c928436f158efda6c658d0c))
+* adding toggle function to open and close the form ([ed09df5](https://github.com/fax-spittah/shopping-list/commit/ed09df530a516b30b6ca857054df70805712eefc))
+* creating a framework for the shopping list page to be built upon later on ([dfc98b4](https://github.com/fax-spittah/shopping-list/commit/dfc98b4cb9681c80911fe54275dadf457309d137))
+* creating a single list each time the user submits welcome page form ([c315d1d](https://github.com/fax-spittah/shopping-list/commit/c315d1d8d78f9df9d6eded013330a146201896c7))
+* creating from variable and the form to it ([9d1dbe4](https://github.com/fax-spittah/shopping-list/commit/9d1dbe495e24ac36f58da4153fcd29f826a70d8a))
+* creating the types needed for the data storage (the shape) ([1f3283a](https://github.com/fax-spittah/shopping-list/commit/1f3283a63eac50921dee3f1cea5514c7631716f5))
+* form validation in welcome page ([48f851a](https://github.com/fax-spittah/shopping-list/commit/48f851a4a6c66689dccf6d80718fa4e94bae1125))
+* refactor form handling in AddItemComponent for improved state management ([c794115](https://github.com/fax-spittah/shopping-list/commit/c7941154e52a746150a86767cbfe25b11a964b4f))
+* routing the welcome page to the home page ([dbe427f](https://github.com/fax-spittah/shopping-list/commit/dbe427f456e9ad2bd4ce2cd36a7572e2c176a175))
+* saving initial list data to localstorage ([adc8659](https://github.com/fax-spittah/shopping-list/commit/adc8659e4e1dea326c87396805cc479771273e95))
+* setting error message to be displayed if budget field is empty ([6579075](https://github.com/fax-spittah/shopping-list/commit/6579075cc5ab522564611e33aede4dd34177d6a1))
+* shopping list framework ([e74f139](https://github.com/fax-spittah/shopping-list/commit/e74f1399c77345efe927806cab88bba9d5cfac65))
+* styled the add item componet ([a17ab12](https://github.com/fax-spittah/shopping-list/commit/a17ab1272f91b8cf3e8d916139f76829992a706b))
+* writing the creatList function for the creation of a new list along with unique id generation and item storage to Localstorage ([1f26ed0](https://github.com/fax-spittah/shopping-list/commit/1f26ed08f40e86d35fbf50bb3a8bd1ccbf3af7bb))
+
+
+### Bug Fixes
+
+* cleaning up unused components from home page ([2eadd6b](https://github.com/fax-spittah/shopping-list/commit/2eadd6bd83231f68378629508f1c6056ec3e8920))
+* correcting parse error ([0060d2a](https://github.com/fax-spittah/shopping-list/commit/0060d2aea8142fb3d255b78abe67b6d832d62fe3))
+
 ## [1.2.0](https://github.com/fax-spittah/shopping-list/compare/v1.1.0...v1.2.0) (2026-01-08)
 
 
