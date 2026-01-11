@@ -56,6 +56,7 @@ export default function AddItemComponent() {
       quantity: Number(form.quantity),
     };
     addItemToList(newItem);
+    clearForm();
   }
 
   return (
