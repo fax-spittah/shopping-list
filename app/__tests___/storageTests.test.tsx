@@ -2,7 +2,7 @@ import { createList } from "../utils/storageUtils";
 
 describe("createList edge cases", () => {
   test("createList creates a new shopping list even if no list name is proveded", () => {
-    const initialBudget = 50;
+    // const initialBudget = 50;
 
     const newList = createList(initialBudget);
     expect(newList).toHaveProperty("id");
