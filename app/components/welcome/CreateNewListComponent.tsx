@@ -4,7 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import createList from "@/app/utils/storageUtils";
+import { createList } from "@/app/utils/storageUtils";
+import { isPositiveNumber } from "@/app/utils/utils";
 
 export default function CreateNewListComponent() {
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -25,6 +26,12 @@ export default function CreateNewListComponent() {
       setErrorMessage("Please enter an initial budget");
       setShowErrorMessage(true);
     } else {
+      if (isPositiveNumber(Number(form.initialBudget)) === false) {
+        setErrorMessage("Budget must be a greater than zero!");
+        setShowErrorMessage(true);
+        return;
+      }
+
       setErrorMessage("");
       setShowErrorMessage(false);
       createList(Number(form.initialBudget), form.listName);

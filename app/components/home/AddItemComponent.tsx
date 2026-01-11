@@ -4,6 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Minimize2 } from "lucide-react";
+import { ShoppingItemProps } from "@/app/types/shopping";
+import { addItemToList } from "@/app/utils/storageUtils";
+import { generateUniqueId, isPositiveNumber } from "@/app/utils/utils";
 
 export default function AddItemComponent() {
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -18,6 +21,7 @@ export default function AddItemComponent() {
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     checkFormFields();
+    createAndAddListItem();
   }
 
   function checkFormFields() {
@@ -42,6 +46,26 @@ export default function AddItemComponent() {
 
   function toggleForm() {
     setToggleAddItemForm(!toggleAddItemForm);
+  }
+
+  function createAndAddListItem() {
+    if (
+      isPositiveNumber(Number(form.price)) === false ||
+      isPositiveNumber(Number(form.quantity)) === false
+    ) {
+      setErrorMessage("Price and Quantity must be greater than zero!");
+      setShowErrorMessage(true);
+      return;
+    }
+
+    const newItem: ShoppingItemProps = {
+      id: generateUniqueId(),
+      name: form.name,
+      price: Number(form.price),
+      quantity: Number(form.quantity),
+    };
+    addItemToList(newItem);
+    clearForm();
   }
 
   return (
