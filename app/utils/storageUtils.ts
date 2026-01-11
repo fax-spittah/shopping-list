@@ -1,4 +1,5 @@
 import { ShoppingItemProps, ShoppingListProps } from "../types/shopping";
+import { generateUniqueId } from "./utils";
 
 export function createList(initialBudget: number, listName?: string) {
   const newList: ShoppingListProps = {
@@ -17,10 +18,6 @@ export function addItemToList(item: ShoppingItemProps) {
     currentList.items.push(item);
     saveListToStorage(currentList);
   }
-}
-
-function generateUniqueId(): string {
-  return "_" + Math.random().toString(36);
 }
 
 function saveListToStorage(list: ShoppingListProps) {
