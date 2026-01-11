@@ -8,3 +8,7 @@ export function useNavigateToWelcomePage() {
   const router = useRouter();
   return () => router.push("/");
 }
+
+export function isPositiveNumber(value: number): boolean {
+  return value > 0;
+}

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Minimize2 } from "lucide-react";
 import { ShoppingItemProps } from "@/app/types/shopping";
 import { addItemToList } from "@/app/utils/storageUtils";
-import { generateUniqueId } from "@/app/utils/utils";
+import { generateUniqueId, isPositiveNumber } from "@/app/utils/utils";
 
 export default function AddItemComponent() {
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -49,6 +49,15 @@ export default function AddItemComponent() {
   }
 
   function createAndAddListItem() {
+    if (
+      isPositiveNumber(Number(form.price)) === false ||
+      isPositiveNumber(Number(form.quantity)) === false
+    ) {
+      setErrorMessage("Price and Quantity must be greater than zero!");
+      setShowErrorMessage(true);
+      return;
+    }
+
     const newItem: ShoppingItemProps = {
       id: generateUniqueId(),
       name: form.name,
