@@ -6,6 +6,7 @@ import DisplayBudgentStatusComponent from "../../components/home/DisplayBudgentS
 import ShoppingItems from "../../components/home/ShoppingItems";
 import { useNavigateToWelcomePage } from "@/app/utils/utils";
 import { useEffect } from "react";
+import { ShoppingItemProps } from "@/app/types/shopping";
 
 export default function HomePage() {
   const navigateToWelcome = useNavigateToWelcomePage();
@@ -16,12 +17,18 @@ export default function HomePage() {
     }
   });
 
+  const shoppingList: ShoppingItemProps[] = [
+    { id: "1", name: "Item 1", price: 10, quantity: 2 },
+    { id: "2", name: "Item 2", price: 5, quantity: 1 },
+    { id: "3", name: "Item 3", price: 15, quantity: 3 },
+  ];
+
   return (
     <div className="flex flex-col justify-between gap-6">
       <h1 className="text-2xl text-center font-bold">Shopping List</h1>
       <DisplayBudgentStatusComponent />
       <AddItemComponent />
-      <ShoppingItems />
+      <ShoppingItems shoppingList={shoppingList} />
       <BottomSectionComponent />
     </div>
   );

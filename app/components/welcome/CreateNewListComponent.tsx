@@ -16,26 +16,29 @@ export default function CreateNewListComponent() {
   });
   const router = useRouter();
 
-  function onSubmit(event: React.FormEvent<HTMLFormElement>) {
-    checkFormFields();
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (!checkFormFields()) return;
+
+    createList(Number(form.initialBudget), form.listName);
+    router.push("/pages/home");
   }
 
-  function checkFormFields() {
+  function checkFormFields(): boolean {
     if (!form.initialBudget) {
       setErrorMessage("Please enter an initial budget");
       setShowErrorMessage(true);
+      return false;
     } else {
       if (isPositiveNumber(Number(form.initialBudget)) === false) {
         setErrorMessage("Budget must be a greater than zero!");
         setShowErrorMessage(true);
-        return;
+        return false;
       }
 
-      setErrorMessage("");
       setShowErrorMessage(false);
-      createList(Number(form.initialBudget), form.listName);
-      router.push("/pages/home");
+      return true;
     }
   }
 
@@ -44,7 +47,7 @@ export default function CreateNewListComponent() {
       <h2 className="text-2xl font-bold mb-4 text-blue-600">
         Start a New Shopping List
       </h2>
-      <form className="flex flex-col gap-4" onSubmit={onSubmit}>
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <div>
           <Label htmlFor="listName">List Name (optional):</Label>
           <Input
