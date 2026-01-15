@@ -20,17 +20,20 @@ export default function AddItemComponent() {
 
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    checkFormFields();
+
+    if (!checkFormFields()) return;
+
     createAndAddListItem();
   }
 
-  function checkFormFields() {
+  function checkFormFields(): boolean {
     if (!form.name || !form.price || !form.quantity) {
       setErrorMessage("Please fill in all fields");
       setShowErrorMessage(true);
+      return false;
     } else {
-      setErrorMessage("");
       setShowErrorMessage(false);
+      return true;
     }
   }
 
