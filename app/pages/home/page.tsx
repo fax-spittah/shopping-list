@@ -37,7 +37,7 @@ export default function HomePage() {
         isItemAdded={isItemAdded}
         setIsItemAdded={setIsItemAdded}
       />
-      <ShoppingItems />
+      <ShoppingItems shoppingList={shoppingList} />
       <BottomSectionComponent />
     </div>
   );
