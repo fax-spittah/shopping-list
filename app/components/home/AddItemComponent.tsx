@@ -8,7 +8,15 @@ import { ShoppingItemProps } from "@/app/types/shopping";
 import { addItemToList } from "@/app/utils/storageUtils";
 import { generateUniqueId, isPositiveNumber } from "@/app/utils/utils";
 
-export default function AddItemComponent() {
+interface AddItemFormState {
+  isItemAdded: boolean;
+  setIsItemAdded: (value: boolean) => void;
+}
+
+export default function AddItemComponent({
+  isItemAdded,
+  setIsItemAdded,
+}: AddItemFormState) {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
   const [toggleAddItemForm, setToggleAddItemForm] = useState<boolean>(false);
@@ -64,8 +72,17 @@ export default function AddItemComponent() {
       price: Number(form.price),
       quantity: Number(form.quantity),
     };
-    addItemToList(newItem);
-    clearForm();
+
+    const success = addItemToList(newItem);
+
+    if (success) {
+      setIsItemAdded(!isItemAdded);
+      clearForm();
+    } else {
+      setErrorMessage("Failed to add item to the list.");
+      setShowErrorMessage(true);
+      return;
+    }
   }
 
   return (

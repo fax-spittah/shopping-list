@@ -12,12 +12,13 @@ export function createList(initialBudget: number, listName?: string) {
   return newList;
 }
 
-export function addItemToList(item: ShoppingItemProps) {
+export function addItemToList(item: ShoppingItemProps): boolean {
   const currentList = fetchCurrentListFromStorage();
-  if (currentList) {
-    currentList.items.push(item);
-    saveListToStorage(currentList);
-  }
+  if (!currentList) return false;
+
+  currentList.items.push(item);
+  saveListToStorage(currentList);
+  return true;
 }
 
 function saveListToStorage(list: ShoppingListProps) {
